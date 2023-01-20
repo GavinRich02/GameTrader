@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameTrader</title>
+</head>
+<body>
+    <h1>Log In</h1>
+    <form action="/users/login" method="POST">
+        <input name="username" type="String">
+        <input name="password" type="String">
+        <button type="submit">Submit</button>
+    </form>
+    <button id="signUp">Sign Up</button>
+</body>
+<script>
+    document.getElementById("signUp").onclick=function() {
+        window.location.href='/signup';
+    }
+</script>
+</html>

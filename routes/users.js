@@ -31,7 +31,6 @@ router.post('/userCheck', async (req,res)=> {
         res.redirect('/');
     }
     else {
-        console.log("Wee");
         let newUser=new User({
             "name": req.body.name,
             "username": req.body.username,

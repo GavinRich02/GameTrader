@@ -9,10 +9,18 @@
     <script src="/main.js" defer></script>
 </head>
 <body>
-    <h1 id="head">GameTrader</h1>
-    <form action="/items/new" method="GET"><button>+</button></form>
+    <div id="header">
+        <h1 id="head" style="display: inline-block">GameTrader</h1>
+        <form action="/items/new" method="GET" style="display: inline-block;"><button>+</button></form>
+    </div>
     <% items.forEach(item=> { %>
-        <h1 onclick="console.log(`<%=item.name%>`)"><%= item.name %></h1>
+        <% if(item.name!=" ") { %>
+            <div class="item" onclick="console.log(`<%=item.id%>`)">
+                <h1><%= item.name %></h1>
+                <h1>$<%= item.cost%></h1>
+            </div>
+        
+        <% } %>
     <% }) %>
 </body>
 </html>

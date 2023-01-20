@@ -1,3 +1,26 @@
-html {
+#header {
+    text-align: center;
     background-color: red;
+
+    margin-top: -10px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+#head {
+    padding-right: 10px;
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+.item {
+    border: 2px solid black;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

@@ -8,9 +8,9 @@ router.get('/new', (req,res)=> {
 });
 
 //Get all items
-router.get('/', async (req,res)=> {
+router.get('/user=:id', async (req,res)=> {
     let items=await Item.find();
-    res.render('./index', {items: items});
+    res.render('./index', {items: items, user: user});
 });
 
 //Get single item

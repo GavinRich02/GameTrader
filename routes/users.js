@@ -18,8 +18,8 @@ router.post('/login', async (req,res)=> {
     }
     else {
         userSignIn=user;
-        console.log(userSignIn);
-        res.redirect('/items/');
+        let link='/items/user='+user[0].id;
+        res.redirect(link);
     }
 });
 
@@ -40,9 +40,9 @@ router.post('/userCheck', async (req,res)=> {
         userSignIn=newUser;
         console.log(userSignIn);
 
-        await newUser.save();
+        newUser=await newUser.save();
 
-        res.redirect('/items/');
+        res.redirect('/items/user=`newUser.id');
     }
 });
 

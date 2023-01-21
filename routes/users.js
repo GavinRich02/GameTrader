@@ -11,7 +11,7 @@ router.get('/', async (req,res)=> {
 
 //Login Check
 router.post('/login', async (req,res)=> {
-    let user=await User.find({"username": req.body.username});
+    let user=await User.find({"username": req.body.username, "password": req.body.password});
 
     if(user==String([])) {
         res.redirect('/');

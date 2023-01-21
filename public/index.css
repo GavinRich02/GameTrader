@@ -1,13 +1,13 @@
+* {
+    margin: 0;
+}
+
 #header {
     text-align: center;
     background-color: red;
 
-    margin-top: -10px;
     padding-top: 16px;
     padding-bottom: 16px;
-
-    margin-left: -10px;
-    margin-right: -10px;
 }
 
 #head {

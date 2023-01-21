@@ -14,8 +14,8 @@ router.get('/', async (req,res)=> {
 });
 
 //Get single item
-router.get('/:id', (req,res)=> {
-
+router.get('/:id', async(req,res)=> {
+    res.render('./itemView', {item: await Item.findById(req.params.id)});
 });
 
 //Create item

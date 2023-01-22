@@ -12,6 +12,10 @@ const itemSchema=new mongoose.Schema({
         type: Number,
         required: true
     },
+    views: {
+        type: Number,
+        default: 0
+    },
     createdAt: {
         type: Date,
         required: true,

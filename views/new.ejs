@@ -7,7 +7,7 @@
     <title>GameTrade</title>
 </head>
 <body>
-    <form action="/items/save" method="POST">
+    <form action="/items/save/<%=user.id%>" method="POST">
         <input type="text" name="name" id="name" placeholder="Name">
         <input type="text" name="desc" id="desc" placeholder="Description">
         <input type="number" name="cost" id="cost" placeholder="Cost">

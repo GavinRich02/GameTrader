@@ -11,11 +11,11 @@
 <body>
     <div id="header">
         <h1 id="head" style="display: inline-block">GameTrader</h1>
-        <form action="/items/new" method="GET" style="display: inline-block;"><button>+</button></form>
+        <form action="/items/new/<%=user.id%>" method="GET" style="display: inline-block;"><button>+</button></form>
     </div>
     <% items.forEach(item=> { %>
         <% if(item.name!=" ") { %>
-            <div class="item" onclick="window.location.href='/items/<%=item.id%>'">
+            <div class="item" onclick="window.location.href='/items/<%=item.id%>-<%=user.id%>'">
                 <h1><%= item.name %></h1>
                 <h1>$<%= item.cost%></h1>
             </div>

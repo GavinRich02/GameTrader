@@ -3,7 +3,7 @@ const router=express.Router();
 const Item=require('../models/item');
 const User=require('../models/user');
 
-//New
+//New Item
 router.get('/new/:id', async(req,res)=> {
     res.render('./new', {user: await User.findById(req.params.id)});
 });
@@ -29,9 +29,7 @@ router.get('/:id-:uId', async(req,res)=> {
         owner=false;
     }
 
-    console.log(owner);
-
-    res.render('./itemView', {item: await Item.findById(req.params.id), isOwner: owner});
+    res.render('./itemView', {item: await Item.findById(req.params.id), user: await User.findById(req.params.uId), isOwner: owner});
 });
 
 //Create item
@@ -54,8 +52,9 @@ router.patch('/:id', (req,res)=> {
 });
 
 //Delete item
-router.delete('/:id', (req, res)=> {
-
+router.delete('/:id-:uId', async(req, res)=> {
+    await Item.findByIdAndDelete(req.params.id);
+    res.redirect('/items/user='+req.params.uId);
 });
 
 module.exports=router;

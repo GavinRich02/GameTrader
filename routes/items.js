@@ -47,8 +47,18 @@ router.post('/save/:id', async(req,res)=> {
 });
 
 //Edit item
-router.patch('/:id', (req,res)=> {
+router.patch('/:id-:uId', async(req,res)=> {
+    let item=await Item.findById(req.params.id);
 
+    if(item.createdBy==req.params.uId) {
+        try {
+            Item.updateOne({id: req.params.id}, {$set: {views: item.views+1}});
+            console.log("Incremented");
+        } catch {console.log("Oof");};
+    }
+    else {
+        console.log("Ope");
+    }
 });
 
 //Delete item

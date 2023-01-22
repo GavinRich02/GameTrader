@@ -16,6 +16,10 @@ const itemSchema=new mongoose.Schema({
         type: Date,
         required: true,
         default: Date.now
+    },
+    createdBy: {
+        type: String,
+        required: true
     }
 });
 

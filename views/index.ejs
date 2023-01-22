@@ -15,10 +15,13 @@
     </div>
     <% items.forEach(item=> { %>
         <% if(item.name!=" ") { %>
-            <div class="item" onclick="window.location.href='/items/<%=item.id%>-<%=user.id%>'">
-                <h1><%= item.name %></h1>
-                <h1>$<%= item.cost%></h1>
-            </div>
+            <form action="/items/<%=item.id%>-<%=user.id%>?_method=PATCH" method="POST" id="patch">
+                <div class="item" onclick="document.getElementById('patch').submit()">
+                    <h1><%= item.name %></h1>
+                    <h1>Views: <%= item.views %></h1>
+                    <h1>$<%= item.cost%></h1>
+                </div>
+            </form>
         <% } %>
     <% }) %>
 </body>

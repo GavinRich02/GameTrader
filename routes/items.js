@@ -15,7 +15,7 @@ router.get('/user=:id', async (req,res)=> {
 });
 
 //Get single item
-router.get('/:id-:uId', async(req,res)=> {
+router.get('/view/:id-:uId', async(req,res)=> {
     let item=await Item.findById(req.params.id);
 
     try {
@@ -49,16 +49,19 @@ router.post('/save/:id', async(req,res)=> {
 //Edit item
 router.patch('/:id-:uId', async(req,res)=> {
     let item=await Item.findById(req.params.id);
+    let views=item.views;
 
-    if(item.createdBy==req.params.uId) {
+    views++;
+    console.log(views);
+
+    if(item.createdBy!=req.params.uId) {
         try {
-            Item.updateOne({id: req.params.id}, {$set: {views: item.views+1}});
-            console.log("Incremented");
+            item.views=views;
+            const complete=await item.save();
         } catch {console.log("Oof");};
     }
-    else {
-        console.log("Ope");
-    }
+
+    res.redirect('/items/view/'+req.params.id+'-'+req.params.uId);
 });
 
 //Delete item

@@ -56,7 +56,6 @@ router.patch('/:id', async(req,res)=> {
     let views=item.views;
 
     views++;
-    console.log(views);
 
     if(item.createdBy!=active) {
         try {

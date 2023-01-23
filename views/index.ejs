@@ -11,14 +11,16 @@
 <body>
     <div id="header">
         <h1 id="head" style="display: inline-block">GameTrader</h1>
-        <form action="/items/new/<%=user.id%>" method="GET" style="display: inline-block;"><button>+</button></form>
+        <form action="/items/new/<%=user.id%>" method="GET" style="display: inline-block;" id="add"><h1 onclick="document.getElementById('add').submit()">+</h1></form>
     </div>
     <% items.forEach(item=> { %>
         <% if(item.name!=" ") { %>
             <form action="/items/<%=item.id%>-<%=user.id%>?_method=PATCH" method="POST" id="patch-<%=item.id%>">
                 <div class="item" onclick="document.getElementById('patch-<%=item.id%>').submit()">
-                    <h1><%= item.name %></h1>
-                    <h1>Views: <%= item.views %></h1>
+                    <div class="item-header">
+                        <h1 style="display: inline-block;"><%= item.name %></h1>
+                        <h1 style="display: inline-block; float: right;">Views: <%= item.views %></h1>
+                    </div>
                     <h1>$<%= item.cost%></h1>
                 </div>
             </form>

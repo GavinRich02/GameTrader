@@ -15,7 +15,7 @@
     </div>
     <% items.forEach(item=> { %>
         <% if(item.name!=" ") { %>
-            <form action="/items/<%=item.id%>-<%=user.id%>?_method=PATCH" method="POST" id="patch-<%=item.id%>">
+            <form action="/items/<%=item.id%>?_method=PATCH" method="POST" id="patch-<%=item.id%>">
                 <div class="item" onclick="document.getElementById('patch-<%=item.id%>').submit()">
                     <div class="item-header">
                         <h1 style="display: inline-block;"><%= item.name %></h1>

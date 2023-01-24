@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameTrader</title>
+</head>
+<body>
+    <div id="header">
+        <h1 id="head" style="display: inline-block">GameTrader</h1>
+    </div>
+    <div>
+        <button onclick="window.location.href='/'">Sign Out</button>
+        <form action="/users/del/<%=user.id%>?_method=DELETE" method="POST"><button>Delete User</button></form>
+    </div>
+</body>
+</html>

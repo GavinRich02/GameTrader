@@ -52,8 +52,19 @@ router.get('/:id', async (req,res)=> {
 });
 
 //Edit user
-router.patch('/:id', (req,res)=> {
+router.patch('/:id', async(req,res)=> {
+    let user=await User.findById(req.params.id);
 
+    try {
+        user.password=req.body.newPass;
+        let complete=await user.save();
+    } catch {
+        console.log("Ope");
+    }
+
+    let link='/users/'+req.params.id;
+
+    res.redirect(link);
 });
 
 //Delete user

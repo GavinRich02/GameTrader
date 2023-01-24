@@ -48,11 +48,7 @@ router.post('/userCheck', async (req,res)=> {
 
 //Get single user
 router.get('/:id', async (req,res)=> {
-});
-
-//Create user
-router.post('/addUser', async(req,res)=> {
-    
+    res.render('./userPage', {user: await User.findById(req.params.id)});
 });
 
 //Edit user
@@ -61,8 +57,10 @@ router.patch('/:id', (req,res)=> {
 });
 
 //Delete user
-router.delete('/:id', (req, res)=> {
+router.delete('/del/:id', async(req, res)=> {
+    const deleted=await User.findByIdAndDelete(req.params.id);
 
+    res.redirect('/');
 });
 
 module.exports=router;

@@ -12,7 +12,7 @@
     <div id="header">
         <h1 id="head" style="display: inline-block">GameTrader</h1>
         <form action="/items/new/<%=user.id%>" method="GET" style="display: inline-block;" id="add"><h1 onclick="document.getElementById('add').submit()">+</h1></form>
-        <h1 id="sign-out" onclick="window.location.href='/'" style="display: inline-block; flaot: right;">Sign Out</h1>
+        <form action="/users/<%=user.id%>" method="GET"><button>Settings</button></form>
     </div>
     <% items.forEach(item=> { %>
         <% if(item.name!=" ") { %>
